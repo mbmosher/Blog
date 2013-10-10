@@ -1,0 +1,24 @@
+<h1>Users</h1>
+<table class="table table-striped">
+  <tr>
+    <th>First</th>
+    <th>Last</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    
+  </tr>
+ 
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.first_name, user_path(user) %></td>
+      <td><%= link_to user.last_name, user_path(user)  %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td><%= link_to 'Delete', user_path(user),
+        method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', posts_path, class: "btn"  %> <%= link_to 'New User', new_user_path, class: "btn" %>

@@ -1,0 +1,12 @@
+
+
+<h1>Recent Posts</h1>
+
+<%= render 'postslist' %>
+<h1>Tags:</h1> 
+<% @tags.each do |tag| %>
+<%= link_to tag.name, { action: 'taggedposts', t_id: tag.id } %>
+<% end %>
+<br><br>
+<%= link_to 'New Post', new_post_path, class: "btn" %> <%= link_to 'Archive', archive_posts_path, class: "btn"  %> <%= link_to 'Users', users_path, class: "btn" %> <%= link_to 'Sign In', new_session_path, class: 'btn' %>
+

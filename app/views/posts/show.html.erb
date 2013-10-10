@@ -1,0 +1,23 @@
+<h2>
+  <%= @post.title %>
+</h2>
+ 
+<p>
+  <%= @post.text %>
+</p>
+<br>
+<strong>Post Tags:</strong>
+<% @ptags.each do |ptag| %>
+<%= ptag.name %> 
+<% end %>
+<br>
+<strong>Add Tag:</strong>
+<% @tags.each do |tag| %>
+<%= link_to tag.name, { action: 'addtag', tag_id: tag.id }, method: :post %>
+<% end %> <strong><%= link_to 'New Tag', new_tag_path %></strong>
+<br><br>
+<h4>Comments:</h4>
+<%= render @post.comments %>
+<br>
+<h4>Add a comment:</h4>
+<%= render "comments/form" %> <%= link_to 'Edit Post', edit_post_path(@post), class: "btn" %> <%= link_to 'Back', posts_path, class: "btn" %>

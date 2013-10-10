@@ -1,0 +1,22 @@
+<h1>Sign In</h1>
+
+<% unless flash[:error].nil? %>
+<div class="alert alert-danger">
+<p><%= flash[:error] %></p>
+</div>
+<% end %>
+
+<%= form_for(:user, url: authenticate_users_path) do |f| %>
+
+<%= f.label :email %>
+<%= f.text_field :email %>
+
+<%= f.label :password %>
+<%= f.password_field :password %>
+<br>
+<%= f.submit "Sign in", class: "btn" %>
+<% end %>
+
+<p>New user? <%= link_to "Sign up now!", new_user_path %></p>
+
+<%= link_to 'Back', posts_path, class: 'btn' %>
